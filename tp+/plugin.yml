@@ -1,0 +1,10 @@
+name: better tp
+version: 1.0
+main: Main
+author: mega32
+description: tp with coordinates
+
+commands:
+     tp:
+         usage: /<command> x/~a y/~a z/~a, for ~, add a number replacing a to add to subtract from your position
+         description: tp with coordinates
