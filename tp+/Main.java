@@ -34,6 +34,23 @@ public class Main extends JavaPlugin{
 	    Player player = (Player) sender;
         World world = player.getWorld();
 		if (cmd.getName().equalsIgnoreCase("tp")) {
+            if (args.length == 1) {
+                if (player.getName().equals(args[0])) {
+                    player.sendMessage(ChatColor.RED + "you tried teleporting to yourself");
+                    return true;
+                }
+                Player ToPlayer = getServer().getPlayer(args[0]);
+                player.teleport(new Location(
+                    world,
+                    ToPlayer.getLocation().getX(),
+                    ToPlayer.getLocation().getY(),
+                    ToPlayer.getLocation().getZ(),
+                    ToPlayer.getLocation().getYaw(),
+                    ToPlayer.getLocation().getPitch()
+                    ));
+                player.sendMessage(ChatColor.GREEN + "you teleported to " +args[0]);
+                return true;
+            }
 			if (!(args.length == 3)) {
 				return false;
 			} else {
